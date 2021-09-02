@@ -1,0 +1,42 @@
+$root-size: 4px;
+$default-width:1200px;
+
+.section__shop h1 { //operation
+    font-size: 2.5 $root-size;
+    width: $default-width /12;
+}
+
+.section__shop h1 { //conditional
+@if $root-size == 4px {
+    color: black;
+    } @else if $root-size == 6px {
+    color:rgb(83, 83, 83);
+    } @else {
+    color: black;
+    }
+}
+
+@for $i from 1 thought 3 { //bucles
+    .section__shop p#($i) {
+        font-size: $i * $root-size;
+    }
+}
+
+.section__shop p {
+    display: flex;
+    flex-direction: center;
+    background-color:rgb(83, 83, 83);
+    color: white; 
+}
+
+.section__shop p {
+    @extend .section__shop p;
+}
+
+@mixin nt($valor) {
+    margin-top: $valor;
+}
+
+.section__shop p {
+@include nt(5px);
+}
